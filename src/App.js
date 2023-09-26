@@ -1,16 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
+import React from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import ViewUsers from "./containers/users/viewUsers";
 
-function App() {
-  axios.get('http://localhost:4000/users').then((res) => {
-    console.log({ res });
-  })
-  return (
-    <div className="App">
-
-    </div>
-  );
-}
-
+const App = () => (
+  <div className="App">
+    <Routes>
+      <Route path="/" element={<ViewUsers />} />
+    </Routes>
+  </div>
+);
 export default App;
