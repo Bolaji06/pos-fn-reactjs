@@ -1,6 +1,10 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 
 function ViewUsers(props) {
+    const { getUsers } = props
+    useEffect(() => {
+        getUsers();
+    }, [getUsers])
 
     return (
         <div >

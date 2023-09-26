@@ -1,5 +1,5 @@
-import ViewUsers from "../../components/users/viewUsers";
-import { getUsers, setLoading } from "../../store/actions";
+import HomeComponent from "../../components/home/home";
+import { setLoading } from "../../store/actions";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -8,9 +8,8 @@ export function mapStateToProps(store) {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getUsers: () => dispatch(getUsers()),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

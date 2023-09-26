@@ -8,13 +8,26 @@ export const setLoading = (loading) => {
     };
 };
 
-export const getUsers = (loading) => {
-    axios.get('http://localhost:4000/users').then((res) => {
-        console.log({ res });
-        return {
-            type: constants.GET_USERS,
-            res,
-        };
-    })
+export const getUsers = () => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get('http://localhost:4000/users').then((res) => {
+            dispatch({
+                type: constants.GET_USERS,
+                users: res.data.users,
+            });
+        })
+    }
+};
 
+export const getProjects = () => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get('http://localhost:4000/projects').then((res) => {
+            dispatch({
+                type: constants.GET_PROJECTS,
+                projects: res.data.projects,
+            });
+        })
+    }
 };
