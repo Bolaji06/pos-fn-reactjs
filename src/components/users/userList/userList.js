@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function ViewUsers(props) {
+function UserList(props) {
     const { getUsers } = props
     useEffect(() => {
         getUsers();
@@ -8,9 +8,9 @@ function ViewUsers(props) {
 
     return (
         <div >
-            View Users
+            User List
         </div>
     );
 }
 
-export default ViewUsers;
+export default UserList;

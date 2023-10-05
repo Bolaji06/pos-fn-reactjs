@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function ViewProjects(props) {
+function ProjectList(props) {
     const { getProjects } = props
     useEffect(() => {
         getProjects();
@@ -8,9 +8,9 @@ function ViewProjects(props) {
 
     return (
         <div >
-            View Projects
+            Project List
         </div>
     );
 }
 
-export default ViewProjects;
+export default ProjectList;

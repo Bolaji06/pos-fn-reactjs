@@ -1,5 +1,5 @@
-import ViewProjects from "../../components/projects/viewProjects";
-import { getProjects, setLoading } from "../../store/actions";
+import ProjectDetails from "../../../components/projects/projectDetails/projectDetails";
+import { getProjects, setLoading } from "../../../store/actions/projects";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -13,4 +13,4 @@ export function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewProjects);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);

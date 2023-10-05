@@ -1,16 +1,13 @@
 import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import ViewUsers from "./containers/users/viewUsers";
-import HomeContainer from './containers/home/home'
-import ViewProjects from "./containers/projects/viewProjects";
+
+import routes from './routes'
 
 const App = () => (
-  <div className="App">
+  <div className="App" style={{ background: 'transparent' }}>
     <Routes>
-      <Route path="/home" element={<HomeContainer />} />
-      <Route path="/users" element={<ViewUsers />} />
-      <Route path="/projects" element={<ViewProjects />} />
+      {routes.map(route => (<Route path={route.path} element={<route.container />} exact={route.exact} />))}
     </Routes>
   </div>
 );

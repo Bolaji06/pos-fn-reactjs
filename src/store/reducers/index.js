@@ -1,30 +1,15 @@
-import { combineReducers } from "redux";
-import * as constants from "../constants/index";
+import { combineReducers } from 'redux';
 
-const initialState = {
-    loading: false,
-    error: "",
-};
+import users from './users';
+import projects from './projects'
+import payments from './payments'
+import home from './home'
+import dashboard from './dashboard'
 
-export function userReducer(state = initialState, action) {
-    console.log({ action });
-    switch (action.type) {
-        case constants.LOADING:
-            return {
-                ...state,
-                loading: action.loading,
-            };
-        case constants.GET_USERS:
-            return {
-                ...state,
-                loading: false,
-                users: action.users,
-            }
-        default:
-            return state;
-    }
-}
-
-const rootReducer = combineReducers({ userReducer });
-
-export default rootReducer;
+export default combineReducers({
+    users,
+    projects,
+    payments,
+    home,
+    dashboard,
+});

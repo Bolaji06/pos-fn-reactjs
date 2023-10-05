@@ -1,5 +1,5 @@
-import HomeComponent from "../../components/home/home";
-import { setLoading } from "../../store/actions/home";
+import Wallet from "../../../components/payments/wallet/wallet";
+import { setLoading } from "../../store/actions";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -12,4 +12,4 @@ export function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
