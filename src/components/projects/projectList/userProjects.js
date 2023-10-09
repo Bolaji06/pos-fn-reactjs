@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import NavBar from "../../common/navBar";
+import AuthenticatedNavBar from "../../common/navBar/authenticatedNavBar";
 import ProjectList from './projectList'
 
 function UserProjects(props) {
@@ -10,7 +10,7 @@ function UserProjects(props) {
 
     return (
         <div >
-            <NavBar />
+            <AuthenticatedNavBar />
             <h1>User Projects</h1>
             <ProjectList />
         </div>

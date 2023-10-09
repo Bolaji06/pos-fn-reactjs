@@ -4,7 +4,7 @@ import { getUsers } from '../../../store/actions/users'
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return ({ ...store, project: store.projects.project });
 }
 
 export function mapDispatchToProps(dispatch) {
@@ -13,7 +13,7 @@ export function mapDispatchToProps(dispatch) {
         getUserProjects: () => dispatch(getUserProjects()),
         getGlobalProjects: () => dispatch(getGlobalProjects()),
         setLoading: (loading) => dispatch(setLoading(loading)),
-        createProject: (projectInput) => dispatch(createProject(projectInput))
+        createProject: (projectInput, navigate) => dispatch(createProject(projectInput, navigate))
     };
 }
 
