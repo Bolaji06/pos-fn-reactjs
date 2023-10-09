@@ -8,15 +8,16 @@ export const setLoading = (loading) => {
     };
 };
 
-export const createProject = (projectInput) => {
+export const createProject = (projectInput, navigate) => {
     return (dispatch) => {
         setLoading(true)
         axios.post('http://localhost:4000/add-project', projectInput).then((res) => {
             dispatch({
                 type: constants.CREATE_PROJECT_SUCCESS,
-                project: res.data.users,
+                project: res.data.project,
             });
             setLoading(false)
+            navigate(`/projects/overview/${res.data.project.id}`)
         }).catch((error) => {
             dispatch({ type: constants.CREATE_PROJECT_ERROR, error })
             setLoading(false)

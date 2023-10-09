@@ -9,7 +9,7 @@ export const setLoading = (loading) => {
 };
 
 
-export const signup = (input) => {
+export const signup = (input, navigate) => {
     return (dispatch) => {
         setLoading(true)
         axios.post('http://localhost:4000/signup', input).then((res) => {
@@ -18,6 +18,7 @@ export const signup = (input) => {
                 user: res.data.user,
             });
             setLoading(false)
+            navigate('/dashboard')
         }).catch((error) => {
             dispatch({ type: constants.SIGNUP_ERROR, error })
             setLoading(false)
@@ -26,7 +27,7 @@ export const signup = (input) => {
 };
 
 
-export const login = (input) => {
+export const login = (input, navigate) => {
     return (dispatch) => {
         setLoading(true)
         axios.post('http://localhost:4000/login', input).then((res) => {
@@ -35,6 +36,7 @@ export const login = (input) => {
                 user: res.data.user,
             });
             setLoading(false)
+            navigate('/dashboard')
         }).catch((error) => {
             dispatch({ type: constants.LOGIN_ERROR, error })
         })

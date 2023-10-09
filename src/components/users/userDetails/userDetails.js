@@ -1,19 +1,27 @@
-import React from "react";
-import UserOverviewNavBar from "../../common/navBar/userOverviewNavBar";
+import AuthenticatedNavBar from "../../common/navBar/authenticatedNavBar"
+import UserOverviewNavBar from '../../common/navBar/userOverviewNavBar'
 
-function UserDetails(props) {
-    const { user } = props
+function UserDetails() {
     return (
-        <div >
-            <UserOverviewNavBar userId={user?.id || ''} />
-            UserDetails
-            <div style={{ display: 'flex' }}>
-                <button>PROJECTS</button>
-                <button>PULL REQUESTS</button>
+        <div style={{ display: 'flex', flexDirection: 'column' }} >
+            <div>
+                <AuthenticatedNavBar />
             </div>
-            <h6>NAME :</h6>
-            <h6>EMAIL :</h6>
-            <h6>ROLES :</h6>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div>
+                    <UserOverviewNavBar />
+                </div>
+                <div>
+                    UserDetails
+                    <div style={{ display: 'flex' }}>
+                        <button>PROJECTS</button>
+                        <button>PULL REQUESTS</button>
+                    </div>
+                    <h6>NAME :</h6>
+                    <h6>EMAIL :</h6>
+                    <h6>ROLES :</h6>
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputField from "../../common/form/inputField"
-import NavBar from "../../common/navBar";
+import AuthenticatedNavBar from "../../common/navBar/authenticatedNavBar";
 
 function EditUser(props) {
     const { editUser, user } = props
@@ -17,7 +17,7 @@ function EditUser(props) {
     }
     return (
         <div >
-            <NavBar />
+            <AuthenticatedNavBar />
             <h1>Edit User</h1>
             <div>
                 <InputField name="firstName" value={userInput.firstName} onChange={handleChange} type="text" placeholder="First Name" />

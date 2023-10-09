@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SelectUserModal from '../common/selectUserModal'
 import InputField from "../../common/form/inputField";
-import axios from 'axios'
-import { } from '../../../store/actions/projects'
+import { useNavigate } from "react-router-dom/dist";
 
 function CreateProjects(props) {
-    const { getUsers, users: { users }, CreateProject } = props
+    const navigate = useNavigate()
+    const { getUsers, users: { users }, createProject } = props
     useEffect(() => {
         getUsers()
     }, [])
@@ -18,7 +18,7 @@ function CreateProjects(props) {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        CreateProject(projectInput)
+        createProject(projectInput, navigate)
     }
     return (
         <div style={{ background: 'transparent' }}>

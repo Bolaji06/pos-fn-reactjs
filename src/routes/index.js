@@ -167,7 +167,7 @@ export default ([
         container: EditUser,
     }, {
         exact: true,
-        path: '/user-overview',
+        path: '/user-overview/:userId',
         container: UserOverview,
     }
 ]);

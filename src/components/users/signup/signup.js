@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import InputField from "../../common/form/inputField"
-import NavBar from "../../common/navBar";
+import NavBar from "../../common/navBar/unAuthenticatedNavBar";
+import { useNavigate } from "react-router-dom/dist";
 
 function Signup(props) {
+    const navigate = useNavigate()
+
     const { signup } = props
     const [userInput, setUserInput] = useState({})
 
@@ -13,7 +16,7 @@ function Signup(props) {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        signup(userInput)
+        signup(userInput, navigate)
     }
     return (
         <div >

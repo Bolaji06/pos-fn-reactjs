@@ -10,7 +10,7 @@ export function mapDispatchToProps(dispatch) {
     return {
         getUsers: () => dispatch(getUsers()),
         setLoading: (loading) => dispatch(setLoading(loading)),
-        signup: (userInput) => dispatch(signup(userInput))
+        signup: (userInput, navigate) => dispatch(signup(userInput, navigate))
     };
 }
 
