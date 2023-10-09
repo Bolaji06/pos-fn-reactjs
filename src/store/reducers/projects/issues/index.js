@@ -3,8 +3,8 @@ import * as constants from "../../../constants/projects";
 const initialState = {
     loading: false,
     error: "",
-    pullRequest: {},
-    pullRequests: []
+    issue: {},
+    issues: []
 };
 
 export default (state = initialState, action) => {
@@ -14,44 +14,44 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: action.loading,
             };
-        case constants.GET_PULL_REQUEST_SUCCESS:
+        case constants.GET_ISSUE_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
+                issue: action.issue,
             }
-        case constants.GET_PROJECT_PULL_REQUESTS_SUCCESS:
+        case constants.GET_PROJECT_ISSUES_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 projectId: action.projectId,
-                projectPullRequests: action.projectPullRequests,
+                projectIssues: action.projectIssues,
             }
-        case constants.GET_GLOBAL_PULL_REQUESTS_SUCCESS:
+        case constants.GET_GLOBAL_ISSUES_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                globalPullRequests: action.globalPullRequests,
+                globalIssues: action.globalIssues,
             }
-        case constants.CREATE_PULL_REQUEST_SUCCESS:
+        case constants.CREATE_ISSUE_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
-            }
-
-        case constants.EDIT_PULL_REQUEST_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                pullRequest: action.pullRequest,
+                issue: action.issue,
             }
 
-        case constants.ASSIGN_PULL_REQUEST_SUCCESS:
+        case constants.EDIT_ISSUE_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
+                issue: action.issue,
+            }
+
+        case constants.ASSIGN_ISSUE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                issue: action.issue,
             }
 
         default:

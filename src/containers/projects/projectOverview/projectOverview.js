@@ -1,4 +1,4 @@
-import ProjectDetails from "../../../components/projects/projectDetails/projectDetails";
+import ProjectOverview from "../../../components/projects/projectOverview/projectOverview";
 import { getUserProjects, setLoading, getProject } from "../../../store/actions/projects";
 import { connect } from "react-redux";
 
@@ -14,4 +14,4 @@ export function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectOverview);

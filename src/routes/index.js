@@ -1,26 +1,126 @@
 import Home from '../containers/home/home'
+
 import Dashboard from '../containers/dashboard/dashboard'
+
 import Payments from '../containers/payments/payments'
+import withdraw from '../containers/payments/withdraw/withdraw'
+import Deposit from '../containers/payments/deposit/deposit'
+
+
+import CreateProject from '../containers/projects/createProject/createProject'
+import EditProject from '../containers/projects/editProject/editProject'
+import ProjectOverview from '../containers/projects/projectOverview/projectOverview'
+import GlobalProjects from '../containers/projects/projectList/globalProjects'
+import UserProjects from '../containers/projects/projectList/userProjects'
+
+
+import EditUser from '../containers/users/editUser/editUser'
+import UserOverview from '../containers/users/userOverview/userOverview'
 import Users from '../containers/users/userList/userList'
 import Signup from '../containers/users/signup/signup'
 import Login from '../containers/users/login/login'
-import CreateProject from '../containers/projects/createProject/createProject'
-import EditProject from '../containers/projects/editProject/editProject'
-import ProjectOverview from '../containers/projects/projectDetails/projectDetails'
-import GlobalProjects from '../containers/projects/projectList/globalProjects'
-import UserProjects from '../containers/projects/projectList/userProjects'
-import withdraw from '../containers/payments/withdraw/withdraw'
-import Deposit from '../containers/payments/deposit/deposit'
+
+
 import GlobalPullRequests from '../containers/projects/pullRequests/globalPullRequests'
 import ProjectPullRequests from '../containers/projects/pullRequests/projectPullRequests'
 import UserPullRequests from '../containers/projects/pullRequests/userPullRequests'
 import PullRequestOverview from '../containers/projects/pullRequests/pullRequestOverview'
 import EditPullRequest from '../containers/projects/pullRequests/editPullRequest'
 import CreatePullRequest from '../containers/projects/pullRequests/createPullRequest'
-import EditUser from '../containers/users/editUser/editUser'
-import UserOverview from '../containers/users/userOverview/userOverview'
 
-export default ([
+
+import GlobalIssues from '../containers/projects/issues/globalIssues'
+import UserIssues from '../containers/projects/issues/userIssues'
+import CreateIssue from '../containers/projects/issues/createIssue'
+import EditIssue from '../containers/projects/issues/editIssue'
+import IssueOverview from '../containers/projects/issues/issueOverview'
+import ProjectIssues from '../containers/projects/issues/projectIssues'
+
+
+import GlobalCommits from '../containers/projects/commits/globalCommits'
+import UserCommits from '../containers/projects/commits/userCommits'
+import CreateCommit from '../containers/projects/commits/createCommit'
+import EditCommit from '../containers/projects/commits/editCommit'
+import CommitOverview from '../containers/projects/commits/commitOverview'
+import ProjectCommits from '../containers/projects/commits/projectCommits'
+
+
+import GlobalBranches from '../containers/projects/branches/globalBranches'
+import UserBranches from '../containers/projects/branches/userBranches'
+import CreateBranch from '../containers/projects/branches/createBranch'
+import EditBranch from '../containers/projects/branches/editBranch'
+import BranchOverview from '../containers/projects/branches/branchOverview'
+import ProjectBranches from '../containers/projects/branches/projectBranches'
+
+const routes = [
+    /**
+    * 
+    * Branch Routes
+    * 
+    **/
+    {
+        exact: true,
+        path: '/branches/global',
+        container: GlobalBranches,
+    }, {
+        exact: true,
+        path: '/branches/project/:projectId',
+        container: ProjectBranches,
+    },
+    {
+        exact: true,
+        path: '/branches/user/:userId',
+        container: UserBranches,
+    }, {
+        exact: true,
+        path: '/branches/overview',
+        container: BranchOverview,
+    }, {
+        exact: true,
+        path: '/branches/edit',
+        container: EditBranch,
+    }, {
+        exact: true,
+        path: '/branches/create',
+        container: CreateBranch,
+    },
+
+
+
+    /**
+    * 
+    * Commit Routes
+    * 
+    **/
+    {
+        exact: true,
+        path: '/commits/global',
+        container: GlobalCommits,
+    }, {
+        exact: true,
+        path: '/commits/project/:projectId',
+        container: ProjectCommits,
+    },
+    {
+        exact: true,
+        path: '/commits/user/:userId',
+        container: UserCommits,
+    }, {
+        exact: true,
+        path: '/commits/overview',
+        container: CommitOverview,
+    }, {
+        exact: true,
+        path: '/commits/edit',
+        container: EditCommit,
+    }, {
+        exact: true,
+        path: '/commits/create',
+        container: CreateCommit,
+    },
+
+
+
     /**
     * 
     * Pull Request Routes
@@ -51,6 +151,38 @@ export default ([
         exact: true,
         path: '/pullRequests/create',
         container: CreatePullRequest,
+    },
+
+    /**
+    * 
+    * Issue Routes
+    * 
+    **/
+    {
+        exact: true,
+        path: '/issues/global',
+        container: GlobalIssues,
+    }, {
+        exact: true,
+        path: '/issues/project/:projectId',
+        container: ProjectIssues,
+    },
+    {
+        exact: true,
+        path: '/issues/user/:userId',
+        container: UserIssues,
+    }, {
+        exact: true,
+        path: '/issues/overview',
+        container: IssueOverview,
+    }, {
+        exact: true,
+        path: '/issues/edit',
+        container: EditIssue,
+    }, {
+        exact: true,
+        path: '/issues/create',
+        container: CreateIssue,
     },
 
 
@@ -170,4 +302,6 @@ export default ([
         path: '/user-overview/:userId',
         container: UserOverview,
     }
-]);
+];
+
+export default routes

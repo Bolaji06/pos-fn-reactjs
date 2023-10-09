@@ -3,8 +3,8 @@ import * as constants from "../../../constants/projects";
 const initialState = {
     loading: false,
     error: "",
-    pullRequest: {},
-    pullRequests: []
+    commit: {},
+    commits: []
 };
 
 export default (state = initialState, action) => {
@@ -14,44 +14,44 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: action.loading,
             };
-        case constants.GET_PULL_REQUEST_SUCCESS:
+        case constants.GET_COMMIT_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
+                commit: action.commit,
             }
-        case constants.GET_PROJECT_PULL_REQUESTS_SUCCESS:
+        case constants.GET_PROJECT_COMMITS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 projectId: action.projectId,
-                projectPullRequests: action.projectPullRequests,
+                projectCommits: action.projectCommits,
             }
-        case constants.GET_GLOBAL_PULL_REQUESTS_SUCCESS:
+        case constants.GET_GLOBAL_COMMITS_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                globalPullRequests: action.globalPullRequests,
+                globalCommits: action.globalCommits,
             }
-        case constants.CREATE_PULL_REQUEST_SUCCESS:
+        case constants.CREATE_COMMIT_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
-            }
-
-        case constants.EDIT_PULL_REQUEST_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                pullRequest: action.pullRequest,
+                commit: action.commit,
             }
 
-        case constants.ASSIGN_PULL_REQUEST_SUCCESS:
+        case constants.EDIT_COMMIT_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                pullRequest: action.pullRequest,
+                commit: action.commit,
+            }
+
+        case constants.ASSIGN_COMMIT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                commit: action.commit,
             }
 
         default:
