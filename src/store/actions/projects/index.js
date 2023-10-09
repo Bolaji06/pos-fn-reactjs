@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -89,10 +89,4 @@ export const getGlobalProjects = () => {
         })
     }
 };
-export default ({
-    createProject,
-    getUserProjects,
-    setLoading,
-    editProject,
-    getGlobalProjects
-})
+

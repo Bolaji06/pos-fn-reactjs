@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import NavBar from "../../common/navBar";
+import NavBar from "../../common/navBar/authenticatedNavBar";
 import PullRequestList from './branchList'
 
 function UserProjects(props) {
-    const { getGlobalProjects } = props
+    const { getGlobalBranches } = props
     useEffect(() => {
-        getGlobalProjects();
-    }, [getGlobalProjects])
+        getGlobalBranches();
+    }, [getGlobalBranches])
 
     return (
         <div >

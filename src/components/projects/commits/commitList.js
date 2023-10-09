@@ -6,7 +6,7 @@ const CommitList = (props) => {
         <div >
             {(commits || []).map(commit => (
                 <div style={{ display: 'flex' }}>
-                    <div>Name</div>
+                    <div>Name : {commit.name}</div>
 
                 </div>
             ))}

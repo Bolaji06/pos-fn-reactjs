@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import NavBar from "../../common/navBar";
+import NavBar from "../../common/navBar/authenticatedNavBar";
 import IssueList from './issueList'
 
 function UserProjects(props) {
-    const { getGlobalProjects } = props
+    const { getProjectIssues } = props
     useEffect(() => {
-        getGlobalProjects();
-    }, [getGlobalProjects])
+        getProjectIssues();
+    }, [getProjectIssues])
 
     return (
         <div >

@@ -7,7 +7,7 @@ const initialState = {
     pullRequests: []
 };
 
-export default (state = initialState, action) => {
+const pullRequestReducer = (state = initialState, action) => {
     switch (action.type) {
         case constants.LOADING:
             return {
@@ -59,8 +59,4 @@ export default (state = initialState, action) => {
     }
 }
 
-
-
-
-
-
+export default pullRequestReducer

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import NavBar from "../../common/navBar";
+import NavBar from "../../common/navBar/authenticatedNavBar";
 import PullRequestList from './commitList'
 
 function GlobalPullRequests(props) {
-    const { getGlobalProjects } = props
+    const { getGlobalCommits } = props
     useEffect(() => {
-        getGlobalProjects();
-    }, [getGlobalProjects])
+        getGlobalCommits();
+    }, [getGlobalCommits])
 
     return (
         <div >

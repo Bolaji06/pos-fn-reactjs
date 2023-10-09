@@ -7,7 +7,7 @@ function ProjectList(props) {
         <div >
             {(branches || []).map(branch => (
                 <div style={{ display: 'flex' }}>
-                    <div>Name</div>
+                    <div>Name  : {branch.name}</div>
 
                 </div>
             ))}

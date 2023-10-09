@@ -1,21 +1,23 @@
 import { combineReducers } from 'redux';
-import { createBrowserHistory } from 'history';
-// import { connectRouter } from 'react-router-redux';
 
 import users from './users';
 import projects from './projects'
-import payments from './payments'
+import wallet from './wallet'
 import home from './home'
 import dashboard from './dashboard'
 import pullRequests from './projects/pullRequests';
-
+import branches from './projects/branches';
+import issues from './projects/issues';
+import commits from './projects/commits';
 
 export default combineReducers({
     users,
     projects,
-    payments,
+    wallet,
     home,
     dashboard,
     pullRequests,
-    // router: connectRouter(history),
+    branches,
+    issues,
+    commits,
 });

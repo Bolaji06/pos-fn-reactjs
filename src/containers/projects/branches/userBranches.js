@@ -1,14 +1,14 @@
 import UserBranches from "../../../components/projects/branches/userBranches";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { getUserBranches, setLoading } from "../../../store/actions/projects/branches";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, userBranches: store.branches.userBranches };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        getUserBranches: () => dispatch(getUserBranches()),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

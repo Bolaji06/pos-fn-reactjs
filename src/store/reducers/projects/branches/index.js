@@ -7,7 +7,7 @@ const initialState = {
     branches: []
 };
 
-export default (state = initialState, action) => {
+const branchReducer = (state = initialState, action) => {
     switch (action.type) {
         case constants.LOADING:
             return {
@@ -59,8 +59,4 @@ export default (state = initialState, action) => {
     }
 }
 
-
-
-
-
-
+export default branchReducer

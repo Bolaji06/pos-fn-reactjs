@@ -1,14 +1,15 @@
 import EditBranch from "../../../components/projects/branches/editBranch";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { editBranch, getBranch, setLoading } from "../../../store/actions/projects/branches";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, branch: store.branches.branch };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        editBranch: (branchInput, branchId, navigate) => dispatch(editBranch(branchInput, branchId, navigate)),
+        getBranch: (branchId) => dispatch(getBranch(branchId)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

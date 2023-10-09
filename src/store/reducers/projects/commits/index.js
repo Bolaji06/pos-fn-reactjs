@@ -7,7 +7,7 @@ const initialState = {
     commits: []
 };
 
-export default (state = initialState, action) => {
+const commitReducer = (state = initialState, action) => {
     switch (action.type) {
         case constants.LOADING:
             return {
@@ -59,8 +59,4 @@ export default (state = initialState, action) => {
     }
 }
 
-
-
-
-
-
+export default commitReducer

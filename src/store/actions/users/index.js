@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -57,10 +57,10 @@ export const getUsers = () => {
     }
 };
 
-export const getUser = () => {
+export const getUser = (userId) => {
     return (dispatch) => {
         setLoading(true)
-        axios.get('http://localhost:4000/users').then((res) => {
+        axios.get(`http://localhost:4000/users/${userId}`).then((res) => {
             dispatch({
                 type: constants.GET_USER_SUCCESS,
                 user: res.data.user,
@@ -71,10 +71,10 @@ export const getUser = () => {
     }
 };
 
-export const editUser = (userInput) => {
+export const editUser = (userInput, userId) => {
     return (dispatch) => {
         setLoading(true)
-        axios.post('http://localhost:4000/editUser', userInput).then((res) => {
+        axios.post(`http://localhost:4000/editUser/${userId || userInput._id}`, userInput).then((res) => {
             dispatch({
                 type: constants.EDIT_USER_SUCCESS,
                 user: res.data.user,
@@ -87,13 +87,3 @@ export const editUser = (userInput) => {
     }
 };
 
-
-
-export default ({
-    getUsers,
-    setLoading,
-    signup,
-    login,
-    editUser,
-    getUser
-})

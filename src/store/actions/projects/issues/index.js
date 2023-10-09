@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -19,6 +19,22 @@ export const getProjectIssues = (projectId) => {
             setLoading(false)
         }).catch((error) => {
             dispatch({ type: constants.GET_PROJECT_ISSUES_ERROR, error })
+            setLoading(false)
+        })
+    }
+};
+
+export const getUserIssues = (userId) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get(`http://localhost:4000/issues/${userId}`).then((res) => {
+            dispatch({
+                type: constants.GET_USER_ISSUES_SUCCESS,
+                userIssues: res.data.userIssues,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USER_ISSUES_ERROR, error })
             setLoading(false)
         })
     }
@@ -55,10 +71,10 @@ export const getIssue = (issueId) => {
 };
 
 
-export const createIssue = (issueId) => {
+export const createIssue = (issueInput) => {
     return (dispatch) => {
         setLoading(true)
-        axios.get(`http://localhost:4000/issues/${issueId}`).then((res) => {
+        axios.post(`http://localhost:4000/issues/create`, issueInput).then((res) => {
             dispatch({
                 type: constants.CREATE_ISSUE_SUCCESS,
                 issue: res.data.issue,
@@ -71,10 +87,10 @@ export const createIssue = (issueId) => {
 };
 
 
-export const editIssue = (issueId) => {
+export const editIssue = (issueId, issueInput) => {
     return (dispatch) => {
         setLoading(true)
-        axios.get(`http://localhost:4000/issues/${issueId}`).then((res) => {
+        axios.put(`http://localhost:4000/issues/${issueId}`, issueInput).then((res) => {
             dispatch({
                 type: constants.EDIT_ISSUE_SUCCESS,
                 issue: res.data.issue,
@@ -109,13 +125,3 @@ export const AssignIssue = (issueId) => {
 
     }
 };
-
-
-export default ({
-    getProjectIssues,
-    getGlobalIssues,
-    getIssue,
-    createIssue,
-    AssignIssue,
-    editIssue
-})

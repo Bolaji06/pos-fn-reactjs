@@ -1,14 +1,14 @@
 import ProjectBranches from "../../../components/projects/branches/projectBranches";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { getProjectBranches, setLoading } from "../../../store/actions/projects/branches";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, ProjectBranches: store.branches.ProjectBranches };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        getProjectBranches: (projectId) => dispatch(getProjectBranches(projectId)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

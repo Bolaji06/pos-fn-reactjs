@@ -2,9 +2,9 @@ import Home from '../containers/home/home'
 
 import Dashboard from '../containers/dashboard/dashboard'
 
-import Payments from '../containers/payments/payments'
-import withdraw from '../containers/payments/withdraw/withdraw'
-import Deposit from '../containers/payments/deposit/deposit'
+import Wallet from '../containers/wallet/wallet'
+import withdraw from '../containers/wallet/withdraw/withdraw'
+import Deposit from '../containers/wallet/deposit/deposit'
 
 
 import CreateProject from '../containers/projects/createProject/createProject'
@@ -225,7 +225,7 @@ const routes = [
     {
         exact: true,
         path: '/payments',
-        container: Payments
+        container: Wallet
     },
     {
         exact: true,

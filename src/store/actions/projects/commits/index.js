@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -23,6 +23,22 @@ export const getProjectCommits = (projectId) => {
         })
     }
 };
+
+export const getUserCommits = (userId) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get(`http://localhost:4000/commits/${userId}`).then((res) => {
+            dispatch({
+                type: constants.GET_USER_COMMITS_SUCCESS,
+                userCommits: res.data.userCommits,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USER_COMMITS_ERROR, error })
+            setLoading(false)
+        })
+    }
+}
 
 export const getGlobalCommits = () => {
     return (dispatch) => {
@@ -109,13 +125,3 @@ export const AssignCommit = (commitId) => {
 
     }
 };
-
-
-export default ({
-    getProjectCommits,
-    getGlobalCommits,
-    getCommit,
-    createCommit,
-    AssignCommit,
-    editCommit
-})

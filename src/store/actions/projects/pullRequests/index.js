@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -19,6 +19,22 @@ export const getProjectPullRequests = (projectId) => {
             setLoading(false)
         }).catch((error) => {
             dispatch({ type: constants.GET_PROJECT_PULL_REQUESTS_ERROR, error })
+            setLoading(false)
+        })
+    }
+};
+
+export const getUserPullRequests = (userId) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get(`http://localhost:4000/pullRequests/${userId}`).then((res) => {
+            dispatch({
+                type: constants.GET_USER_PULL_REQUESTS_SUCCESS,
+                userPullRequests: res.data.userPullRequests,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USER_PULL_REQUESTS_ERROR, error })
             setLoading(false)
         })
     }
@@ -55,10 +71,10 @@ export const getPullRequest = (pullRequestId) => {
 };
 
 
-export const createPullRequest = (pullRequestId) => {
+export const createPullRequest = () => {
     return (dispatch) => {
         setLoading(true)
-        axios.get(`http://localhost:4000/pullRequests/${pullRequestId}`).then((res) => {
+        axios.get(`http://localhost:4000/pullRequests`).then((res) => {
             dispatch({
                 type: constants.CREATE_PULL_REQUEST_SUCCESS,
                 pullRequest: res.data.pullRequest,
@@ -110,12 +126,3 @@ export const AssignPullRequest = (pullRequestId) => {
     }
 };
 
-
-export default ({
-    getProjectPullRequests,
-    getGlobalPullRequests,
-    getPullRequest,
-    createPullRequest,
-    AssignPullRequest,
-    editPullRequest
-})

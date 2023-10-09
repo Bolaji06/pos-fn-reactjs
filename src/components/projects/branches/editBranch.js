@@ -1,6 +1,6 @@
 import React from "react";
 
-function EditBranch(props) {
+function EditBranch() {
     return (
         <div >
             At the moment we will utilize github platform to create an issue

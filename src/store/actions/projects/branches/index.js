@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
@@ -19,6 +19,22 @@ export const getProjectBranches = (projectId) => {
             setLoading(false)
         }).catch((error) => {
             dispatch({ type: constants.GET_PROJECT_BRANCHES_ERROR, error })
+            setLoading(false)
+        })
+    }
+};
+
+export const getUserBranches = (userId) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.get(`http://localhost:4000/branches/${userId}`).then((res) => {
+            dispatch({
+                type: constants.GET_USER_BRANCHES_SUCCESS,
+                userBranches: res.data.userBranches,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USER_BRANCHES_ERROR, error })
             setLoading(false)
         })
     }
@@ -109,13 +125,3 @@ export const AssignBranch = (branchId) => {
 
     }
 };
-
-
-export default ({
-    getProjectBranches,
-    getGlobalBranches,
-    getBranch,
-    createBranch,
-    AssignBranch,
-    editBranch
-})

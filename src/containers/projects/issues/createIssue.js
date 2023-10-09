@@ -1,5 +1,5 @@
 import CreateIssue from "../../../components/projects/issues/createIssue";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { createIssue, setLoading } from "../../../store/actions/projects/issues";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -8,7 +8,7 @@ export function mapStateToProps(store) {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        createIssue: (issueInput) => dispatch(createIssue(issueInput)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

@@ -1,14 +1,14 @@
 import ProjectCommits from "../../../components/projects/commits/projectCommits";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { getProjectCommits, setLoading } from "../../../store/actions/projects/commits";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, projectCommits: store.commits.projectCommits };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        getProjectCommits: (projectId) => dispatch(getProjectCommits(projectId)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

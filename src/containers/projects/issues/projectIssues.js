@@ -1,14 +1,14 @@
 import ProjectIssues from "../../../components/projects/issues/projectIssues";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { getProjectIssues, setLoading } from "../../../store/actions/projects/issues";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, projectIssues: store.issues.projectIssues };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        getProjectIssues: (projectId) => dispatch(getProjectIssues(projectId)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

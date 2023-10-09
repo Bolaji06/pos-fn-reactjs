@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import NavBar from "../../common/navBar";
+import NavBar from "../../common/navBar/authenticatedNavBar";
 import IssueList from './issueList'
 
 function GlobalIssues(props) {
-    const { getGlobalProjects } = props
+    const { getGlobalIssues } = props
     useEffect(() => {
-        getGlobalProjects();
-    }, [getGlobalProjects])
+        getGlobalIssues();
+    }, [getGlobalIssues])
 
     return (
         <div >
