@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import NavBar from "../../common/navBar";
 
 function UserList(props) {
     const { getUsers } = props
@@ -8,6 +9,7 @@ function UserList(props) {
 
     return (
         <div >
+            <NavBar />
             User List
         </div>
     );

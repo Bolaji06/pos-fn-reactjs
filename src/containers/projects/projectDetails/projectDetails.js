@@ -1,5 +1,5 @@
 import ProjectDetails from "../../../components/projects/projectDetails/projectDetails";
-import { getProjects, setLoading } from "../../../store/actions/projects";
+import { getUserProjects, setLoading } from "../../../store/actions/projects";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -8,7 +8,7 @@ export function mapStateToProps(store) {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getProjects: () => dispatch(getProjects()),
+        getUserProjects: () => dispatch(getUserProjects()),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

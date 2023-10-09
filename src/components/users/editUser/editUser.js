@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import InputField from "../../common/form/inputField"
 import NavBar from "../../common/navBar";
 
-function Signup(props) {
-    const { signup } = props
-    const [userInput, setUserInput] = useState({})
+function EditUser(props) {
+    const { editUser, user } = props
+    const [userInput, setUserInput] = useState(user || {})
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -13,12 +13,12 @@ function Signup(props) {
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        signup(userInput)
+        editUser(userInput)
     }
     return (
         <div >
             <NavBar />
-            <h1>Signup</h1>
+            <h1>Edit User</h1>
             <div>
                 <InputField name="firstName" value={userInput.firstName} onChange={handleChange} type="text" placeholder="First Name" />
             </div>
@@ -44,4 +44,4 @@ function Signup(props) {
     );
 }
 
-export default Signup;
+export default EditUser;

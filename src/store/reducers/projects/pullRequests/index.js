@@ -1,24 +1,8 @@
-import * as constants from "../../constants/projects";
+import * as constants from "../../../constants/projects";
 
 const initialState = {
     loading: false,
     error: "",
-    projects: [
-        {
-            id: 1,
-            name: 'EvenHelp',
-            description: 'POS',
-            link: 'github.com'
-        }
-    ],
-    globalProjects: [
-        {
-            id: 1,
-            name: 'EvenHelp',
-            description: 'POS',
-            link: 'github.com'
-        }
-    ]
 };
 
 export default (state = initialState, action) => {
@@ -28,37 +12,44 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: action.loading,
             };
-        case constants.GET_PROJECT_SUCCESS:
+        case constants.GET_PULL_REQUEST_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                project: action.project,
+                pullRequest: action.pullRequest,
             }
-        case constants.GET_USER_PROJECTS_SUCCESS:
+        case constants.GET_PROJECT_PULL_REQUESTS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 projectId: action.projectId,
                 projectPullRequests: action.projectPullRequests,
             }
-        case constants.GET_GLOBAL_PROJECTS_SUCCESS:
+        case constants.GET_GLOBAL_PULL_REQUESTS_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 globalPullRequests: action.globalPullRequests,
             }
-        case constants.CREATE_PROJECT_SUCCESS:
+        case constants.CREATE_PULL_REQUEST_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                project: action.project,
+                pullRequest: action.pullRequest,
             }
 
-        case constants.EDIT_PROJECT_SUCCESS:
+        case constants.EDIT_PULL_REQUEST_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                project: action.project,
+                pullRequest: action.pullRequest,
+            }
+
+        case constants.ASSIGN_PULL_REQUEST_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                pullRequest: action.pullRequest,
             }
 
         default:

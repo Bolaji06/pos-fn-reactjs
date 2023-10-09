@@ -9,15 +9,34 @@ export const setLoading = (loading) => {
 };
 
 
-export const createUser = (userInput) => {
+export const signup = (input) => {
     return (dispatch) => {
         setLoading(true)
-        axios.post('http://localhost:4000/add-user', userInput).then((res) => {
+        axios.post('http://localhost:4000/signup', input).then((res) => {
             dispatch({
-                type: constants.CREATE_USER,
-                // users: res.data.users,
+                type: constants.SIGNUP_SUCCESS,
+                user: res.data.user,
             });
             setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.SIGNUP_ERROR, error })
+            setLoading(false)
+        })
+    }
+};
+
+
+export const login = (input) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.post('http://localhost:4000/login', input).then((res) => {
+            dispatch({
+                type: constants.LOGIN_SUCCESS,
+                user: res.data.user,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.LOGIN_ERROR, error })
         })
     }
 };
@@ -26,29 +45,53 @@ export const getUsers = () => {
     return (dispatch) => {
         setLoading(true)
         axios.get('http://localhost:4000/users').then((res) => {
-            console.log({ res });
             dispatch({
-                type: constants.GET_USERS,
+                type: constants.GET_USERS_SUCCESS,
                 users: res.data.users,
             });
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USERS_ERROR, error })
         })
     }
 };
 
-export const getProjects = () => {
+export const getUser = () => {
     return (dispatch) => {
         setLoading(true)
-        axios.get('http://localhost:4000/projects').then((res) => {
+        axios.get('http://localhost:4000/users').then((res) => {
             dispatch({
-                type: constants.GET_PROJECTS,
-                projects: res.data.projects,
+                type: constants.GET_USER_SUCCESS,
+                user: res.data.user,
             });
+        }).catch((error) => {
+            dispatch({ type: constants.GET_USER_ERROR, error })
         })
     }
 };
+
+export const editUser = (userInput) => {
+    return (dispatch) => {
+        setLoading(true)
+        axios.post('http://localhost:4000/editUser', userInput).then((res) => {
+            dispatch({
+                type: constants.EDIT_USER_SUCCESS,
+                user: res.data.user,
+            });
+            setLoading(false)
+        }).catch((error) => {
+            dispatch({ type: constants.EDIT_USER_ERROR, error })
+            setLoading(false)
+        })
+    }
+};
+
+
 
 export default ({
     getUsers,
-    getProjects,
     setLoading,
+    signup,
+    login,
+    editUser,
+    getUser
 })

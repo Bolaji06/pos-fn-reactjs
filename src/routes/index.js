@@ -2,15 +2,58 @@ import Home from '../containers/home/home'
 import Dashboard from '../containers/dashboard/dashboard'
 import Payments from '../containers/payments/payments'
 import Users from '../containers/users/userList/userList'
-import Projects from '../containers/projects/projectList/projectList'
 import Signup from '../containers/users/signup/signup'
 import Login from '../containers/users/login/login'
 import CreateProject from '../containers/projects/createProject/createProject'
 import EditProject from '../containers/projects/editProject/editProject'
-import ProjectDetails from '../containers/projects/projectDetails/projectDetails'
-import ProjectList from '../containers/projects/projectList/projectList'
+import ProjectOverview from '../containers/projects/projectDetails/projectDetails'
+import GlobalProjects from '../containers/projects/projectList/globalProjects'
+import UserProjects from '../containers/projects/projectList/userProjects'
+import withdraw from '../containers/payments/withdraw/withdraw'
+import Deposit from '../containers/payments/deposit/deposit'
+import GlobalPullRequests from '../containers/projects/pullRequests/globalPullRequests'
+import ProjectPullRequests from '../containers/projects/pullRequests/projectPullRequests'
+import UserPullRequests from '../containers/projects/pullRequests/userPullRequests'
+import PullRequestOverview from '../containers/projects/pullRequests/pullRequestOverview'
+import EditPullRequest from '../containers/projects/pullRequests/editPullRequest'
+import CreatePullRequest from '../containers/projects/pullRequests/createPullRequest'
+import EditUser from '../containers/users/editUser/editUser'
+import UserOverview from '../containers/users/userOverview/userOverview'
 
 export default ([
+    /**
+    * 
+    * Pull Request Routes
+    * 
+    **/
+    {
+        exact: true,
+        path: '/pullRequests/global',
+        container: GlobalPullRequests,
+    }, {
+        exact: true,
+        path: '/pullRequests/project/:projectId',
+        container: ProjectPullRequests,
+    },
+    {
+        exact: true,
+        path: '/pullRequests/user/:userId',
+        container: UserPullRequests,
+    }, {
+        exact: true,
+        path: '/pullRequests/overview',
+        container: PullRequestOverview,
+    }, {
+        exact: true,
+        path: '/pullRequests/edit',
+        container: EditPullRequest,
+    }, {
+        exact: true,
+        path: '/pullRequests/create',
+        container: CreatePullRequest,
+    },
+
+
     /**
      * 
      * Home Routes
@@ -52,6 +95,15 @@ export default ([
         path: '/payments',
         container: Payments
     },
+    {
+        exact: true,
+        path: '/payments/withdraw',
+        container: withdraw
+    }, {
+        exact: true,
+        path: '/payments/deposit',
+        container: Deposit
+    },
 
 
 
@@ -63,7 +115,7 @@ export default ([
     {
         exact: true,
         path: '/projects',
-        container: Projects,
+        container: UserProjects,
     }, {
         exact: true,
         path: '/projects/create',
@@ -74,13 +126,20 @@ export default ([
         container: EditProject,
     }, {
         exact: true,
-        path: '/projects/details',
-        container: ProjectDetails,
+        path: '/projects/overview/:id',
+        container: ProjectOverview,
     }, {
         exact: true,
-        path: '/projects/list',
-        container: ProjectList,
+        path: '/projects/global',
+        container: GlobalProjects,
     },
+
+
+
+
+
+
+
 
 
     /**
@@ -102,5 +161,13 @@ export default ([
         exact: true,
         path: '/login',
         container: Login,
+    }, {
+        exact: true,
+        path: '/edit-user',
+        container: EditUser,
+    }, {
+        exact: true,
+        path: '/user-overview',
+        container: UserOverview,
     }
 ]);

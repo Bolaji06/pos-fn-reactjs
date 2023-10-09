@@ -1,5 +1,5 @@
 import Deposit from "../../../components/payments/deposit/deposit";
-import { setLoading } from "../../../store/actions/payments/";
+import { setLoading } from "../../../store/actions/payments";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {

@@ -1,5 +1,5 @@
 import Withdraw from "../../../components/payments/withdraw/withdraw";
-import { setLoading } from "../../store/actions";
+import { setLoading } from "../../../store/actions/payments";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {

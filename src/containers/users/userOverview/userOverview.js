@@ -1,5 +1,5 @@
 import UserDetails from "../../../components/users/userDetails/userDetails";
-import { getUsers, setLoading } from "../../../store/actions";
+import { getUsers, setLoading } from "../../../store/actions/users";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {

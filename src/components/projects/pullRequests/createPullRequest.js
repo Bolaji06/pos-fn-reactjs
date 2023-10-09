@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
 
 function ProjectList(props) {
     const { projects } = props
+
     return (
         <div >
             {(projects || []).map(project => (
-                <div style={{ display: 'flex' }} key={`key-${project.id}`}>
-                    <NavLink to={`/projects/overview/${project.id}`}>  <div>Name : {project.name}</div></NavLink>
+                <div style={{ display: 'flex' }}>
+                    <div>Name</div>
+
                 </div>
             ))}
         </div>

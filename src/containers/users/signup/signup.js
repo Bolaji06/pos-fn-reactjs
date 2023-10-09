@@ -1,5 +1,5 @@
 import Signup from "../../../components/users/signup/signup";
-import { getUsers, setLoading, createUser } from "../../../store/actions/users";
+import { getUsers, setLoading, signup } from "../../../store/actions/users";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -10,7 +10,7 @@ export function mapDispatchToProps(dispatch) {
     return {
         getUsers: () => dispatch(getUsers()),
         setLoading: (loading) => dispatch(setLoading(loading)),
-        createUser: (userInput) => dispatch(createUser(userInput))
+        signup: (userInput) => dispatch(signup(userInput))
     };
 }
 

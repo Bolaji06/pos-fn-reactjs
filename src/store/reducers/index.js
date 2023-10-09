@@ -5,6 +5,7 @@ import projects from './projects'
 import payments from './payments'
 import home from './home'
 import dashboard from './dashboard'
+import pullRequests from './projects/pullRequests';
 
 export default combineReducers({
     users,
@@ -12,4 +13,5 @@ export default combineReducers({
     payments,
     home,
     dashboard,
+    pullRequests
 });
