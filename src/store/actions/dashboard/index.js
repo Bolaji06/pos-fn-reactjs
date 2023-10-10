@@ -1,13 +1,8 @@
-// import * as constants from "../../constants/users";
-// import axios from "axios";
+import * as constants from "../../constants/dashboard";
 
 export const setLoading = (loading) => {
     return {
-        type: "LOADING",
+        type: constants.LOADING,
         loading,
     };
 };
-
-export default ({
-    setLoading
-})

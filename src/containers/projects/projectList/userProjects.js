@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 export function mapStateToProps(store) {
     return {
         ...store,
-        projects: store.projects.projects
+        projects: store.projects.projects,
+        userProjects: store.projects.userProjects
     };
 }
 

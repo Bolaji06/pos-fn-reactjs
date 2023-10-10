@@ -1,14 +1,14 @@
 import GlobalPullRequests from "../../../components/projects/pullRequests/globalPullRequests";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { getGlobalPullRequests, setLoading } from "../../../store/actions/projects/pullRequests";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
-    return store;
+    return { ...store, globalPullRequests: store.pullRequests.globalPullRequests };
 }
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        getGlobalPullRequests: () => dispatch(getGlobalPullRequests()),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

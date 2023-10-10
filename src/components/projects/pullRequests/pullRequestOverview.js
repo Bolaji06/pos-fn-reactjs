@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-function PullRequestOverview(props) {
-
+function PullRequestOverview() {
     return (
         <div >
             <h1>Pull Request Overview</h1>

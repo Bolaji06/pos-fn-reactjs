@@ -3,6 +3,12 @@ import * as constants from "../../constants/projects";
 const initialState = {
     loading: false,
     error: "",
+    project: {
+        id: 1,
+        name: 'EvenHelp',
+        description: 'POS',
+        link: 'github.com'
+    },
     projects: [
         {
             id: 1,
@@ -13,7 +19,7 @@ const initialState = {
     ],
     globalProjects: [
         {
-            id: 1,
+            id: 2,
             name: 'EvenHelp',
             description: 'POS',
             link: 'github.com'
@@ -21,7 +27,7 @@ const initialState = {
     ]
 };
 
-export default (state = initialState, action) => {
+const projectReducer = (state = initialState, action) => {
     switch (action.type) {
         case constants.LOADING:
             return {
@@ -66,8 +72,4 @@ export default (state = initialState, action) => {
     }
 }
 
-
-
-
-
-
+export default projectReducer

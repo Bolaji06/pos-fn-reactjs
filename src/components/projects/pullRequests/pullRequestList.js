@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function ProjectList(props) {
     const { pullRequests } = props
@@ -7,7 +7,7 @@ function ProjectList(props) {
         <div >
             {(pullRequests || []).map(pullRequest => (
                 <div style={{ display: 'flex' }}>
-                    <div>Name</div>
+                    <div>Name : {pullRequest.name}</div>
 
                 </div>
             ))}

@@ -7,7 +7,7 @@ const initialState = {
     users: []
 };
 
-export default (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case constants.LOADING:
             return {
@@ -52,4 +52,4 @@ export default (state = initialState, action) => {
     }
 }
 
-
+export default userReducer

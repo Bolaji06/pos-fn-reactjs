@@ -1,5 +1,5 @@
 import CreatePullRequest from "../../../components/projects/pullRequests/createPullRequest";
-import { getGlobalProjects, setLoading } from "../../../store/actions/projects";
+import { createPullRequest, setLoading } from "../../../store/actions/projects/pullRequests";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -8,7 +8,7 @@ export function mapStateToProps(store) {
 
 export function mapDispatchToProps(dispatch) {
     return {
-        getGlobalProjects: () => dispatch(getGlobalProjects()),
+        createPullRequest: () => dispatch(createPullRequest()),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }

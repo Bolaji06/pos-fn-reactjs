@@ -1,5 +1,5 @@
 import UserList from "../../../components/users/userList/userList";
-import { getUsers, setLoading } from "../../../store/actions/users";
+import { getUsers, getUser, editUser, setLoading } from "../../../store/actions/users";
 import { connect } from "react-redux";
 
 export function mapStateToProps(store) {
@@ -12,6 +12,8 @@ export function mapStateToProps(store) {
 export function mapDispatchToProps(dispatch) {
     return {
         getUsers: () => dispatch(getUsers()),
+        getUser: (userId) => dispatch(getUser(userId)),
+        editUser: (userId) => dispatch(editUser(userId)),
         setLoading: (loading) => dispatch(setLoading(loading)),
     };
 }
